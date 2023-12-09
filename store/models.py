@@ -60,3 +60,13 @@ class Customer(models.Model):
             choices=PAYMENT_STATUS,
             default=PAYMENT_STATUS_FAILED,
         )
+
+
+class Address(models.Model):
+    street = models.CharField(_("Street"), max_length=255)
+    city = models.CharField(_("City"), max_length=255)
+    customer = models.OneToOneField(
+        "store.Customer",
+        verbose_name=_("Customer"),
+        on_delete=models.CASCADE,
+    )
