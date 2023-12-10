@@ -135,6 +135,7 @@ class Address(models.Model):
 
     street = models.CharField(_("Street"), max_length=255)
     city = models.CharField(_("City"), max_length=255)
+    zip_code = models.CharField(_("Zip Code"), max_length=50)
     customer = models.ForeignKey(
         "store.Customer", verbose_name=_("Customer"), on_delete=models.CASCADE
     )
